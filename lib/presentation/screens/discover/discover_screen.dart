@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
 import 'package:tiktok/presentation/providers/discover_provider.dart';
 import 'package:tiktok/presentation/widgets/shared/video_scrollable_view.dart';
 
