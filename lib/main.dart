@@ -15,7 +15,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => DiscoverProvider()),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => DiscoverProvider()
+            ..loadNextPage(), // cascade operator allows to make a sequence of operations on the same object
+        ),
       ],
       child: MaterialApp(
         title: 'Tiktok',
