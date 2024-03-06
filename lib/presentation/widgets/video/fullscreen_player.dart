@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/presentation/widgets/video/gradient_background.dart';
 
 import 'package:video_player/video_player.dart';
 
@@ -71,6 +72,16 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                   controller,
                 ),
                 // Gradient
+                GradientBackground(
+                  colors: const [
+                    Colors.transparent,
+                    Colors.black,
+                  ],
+                  stops: const [
+                    0.8,
+                    1.0,
+                  ],
+                ),
                 Positioned(
                   bottom: 40,
                   left: 20,
