@@ -19,6 +19,18 @@ class FullScreenPlayer extends StatefulWidget {
 class _FullScreenPlayerState extends State<FullScreenPlayer> {
   late VideoPlayerController controller;
 
+  void toggleVideoPlay() {
+    setState(() {
+      if (controller.value.isPlaying) {
+        controller.pause();
+
+        return;
+      }
+
+      controller.play();
+    });
+  }
+
   @override
   void initState() {
     super.initState(); // at the start of the funtion's body
@@ -49,22 +61,25 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
           );
         }
 
-        return AspectRatio(
-          aspectRatio: controller.value.aspectRatio,
-          child: Stack(
-            children: [
-              VideoPlayer(
-                controller,
-              ),
-              // Gradient
-              Positioned(
-                bottom: 40,
-                left: 20,
-                child: _VideoCaption(
-                  caption: widget.caption,
+        return GestureDetector(
+          onTap: toggleVideoPlay,
+          child: AspectRatio(
+            aspectRatio: controller.value.aspectRatio,
+            child: Stack(
+              children: [
+                VideoPlayer(
+                  controller,
                 ),
-              )
-            ],
+                // Gradient
+                Positioned(
+                  bottom: 40,
+                  left: 20,
+                  child: _VideoCaption(
+                    caption: widget.caption,
+                  ),
+                )
+              ],
+            ),
           ),
         );
       },
