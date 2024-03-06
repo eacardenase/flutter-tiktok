@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:tiktok/config/helpers/human_formats.dart';
 import 'package:tiktok/domain/entities/video_post.dart';
 
 class VideoButtons extends StatelessWidget {
@@ -50,7 +52,9 @@ class _CustomIconButton extends StatelessWidget {
             size: 30,
           ),
         ),
-        Text('$value'),
+        Text(
+          HumanFormats.humanReadableNumber(value),
+        ),
       ],
     );
   }
