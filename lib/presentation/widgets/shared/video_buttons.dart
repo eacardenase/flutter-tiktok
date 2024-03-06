@@ -1,5 +1,6 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+
+import 'package:animate_do/animate_do.dart';
 
 import 'package:tiktok/config/helpers/human_formats.dart';
 import 'package:tiktok/domain/entities/video_post.dart';
