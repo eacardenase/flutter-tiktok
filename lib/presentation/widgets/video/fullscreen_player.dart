@@ -51,11 +51,45 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
 
         return AspectRatio(
           aspectRatio: controller.value.aspectRatio,
-          child: VideoPlayer(
-            controller,
+          child: Stack(
+            children: [
+              VideoPlayer(
+                controller,
+              ),
+              // Gradient
+              Positioned(
+                bottom: 40,
+                left: 20,
+                child: _VideoCaption(
+                  caption: widget.caption,
+                ),
+              )
+            ],
           ),
         );
       },
+    );
+  }
+}
+
+class _VideoCaption extends StatelessWidget {
+  final String caption;
+
+  const _VideoCaption({
+    required this.caption,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: width * 0.6,
+      child: Text(
+        caption,
+        maxLines: 2,
+        style: Theme.of(context).textTheme.titleMedium,
+      ),
     );
   }
 }
